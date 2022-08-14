@@ -4,10 +4,10 @@ int LSearch(int arr[], int len, int target)
 {
 	for (int i = 0; i < len; i++)
 {
-		if (arr[i] == target)                                //target Ã£À» ½Ã idx return
+		if (arr[i] == target)                                //target ì°¾ì„ ì‹œ idx return
 			return i;
 	}
-	return -1;                                               //¸ø Ã£À» ½Ã -1 return
+	return -1;                                               //ëª» ì°¾ì„ ì‹œ -1 return
 }
 
 int main() 
@@ -17,8 +17,8 @@ int main()
 
 	idx = LSearch(arr, sizeof(arr) / sizeof(int), 15);
 	if (idx == -1)
-		printf("Å½»ö ½ÇÆĞ");
+		printf("íƒìƒ‰ ì‹¤íŒ¨");
 	else
-		printf("%d ¹ø Â° ÀÎµ¦½º Å½»ö ¿Ï·á", idx);
+		printf("%d ë²ˆ ì§¸ ì¸ë±ìŠ¤ íƒìƒ‰ ì™„ë£Œ", idx);
 
 }
