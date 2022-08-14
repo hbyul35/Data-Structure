@@ -20,5 +20,6 @@ int main()
 		printf("탐색 실패");
 	else
 		printf("%d 번 째 인덱스 탐색 완료", idx);
-
+	
+	return 0;
 }
