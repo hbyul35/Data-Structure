@@ -87,7 +87,7 @@ int main()
 }
 ```
 
-##하노이타워
+## 하노이타워
 ```
 int HanoiTower(int num, char from, char by, char to)
 {
