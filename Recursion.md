@@ -96,9 +96,9 @@ int HanoiTower(int num, char from, char by, char to)
 
 	else
 	{
-		HanoiTower(num - 1, from, to, by);                                   //1단계
-		printf("원반%d를 %c 에서 %c로 이동했습니다. \n", num, from, to);       //2단계
-		HanoiTower(num - 1, by, from, to);                                   //3단계
+		HanoiTower(num - 1, from, to, by);                                   // 작은 원반 n-1개를 A -> B
+		printf("원반%d를 %c 에서 %c로 이동했습니다. \n", num, from, to);       // 큰 원반 1개를 A -> C
+		HanoiTower(num - 1, by, from, to);                                   // 작은 원반 n-1개를 B -> C
 	}
 }
 
