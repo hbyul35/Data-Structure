@@ -6,7 +6,9 @@
 # Abstract Data Type [추상자료형]
 - 구체적인 기능의 완성과정을 언급하지 않고, 순수하게 기능이 무엇인지를 나열한 것
 
+# ArrayList.h
 ```
+
 #include <stdio.h>
 #ifndef __ARRAY_LIST_H__                           //ifndef : 변수가 정의되어있지않으면 발생
 #define __ARRAY_LIST_H__
@@ -26,14 +28,34 @@ typedef struct __ArrayList                          //배열기반 리스트를 
 
 typedef ArrayList List;                              //배열기반 리스트 
 
+void ListInit(List* plist);                          //초기화
+void LInsert(List* plist, LData data);               //데이터 저장
+
+int LFirst(List* plist, LData* pdata);               //첫 데이터 참조
+int LNext(List* plist, LData* pdata);                //두 번째 이후 데이터 참조
+
+LData LRemove(List* plist);                          //참조한 데이터 삭제 
+int LCount(List* plist);                             //저장된 데이터의 수 반환
+
+#endif
+
+
+```
+
+ListMain.c
+```
+#include <stdio.h>
+#include "ArrayList.h"
+
 void ListInit(List* plist)                           //초기화
 {
 	(plist->numOfData) = 0;                          //리스트에 저장된 데이터의 수 초기화
 	(plist->curPosition) = -1;                       //현재 아무 위치도 가리키지 않음
 }
-void LInsert(List* plist, LData data)                
+
+void LInsert(List* plist, LData data)
 {
-	if (plist->numOfData >=LIST_LEN)
+	if (plist->numOfData >= LIST_LEN)
 	{
 		puts("저장공간이 부족합니다.");
 		return;
@@ -53,12 +75,13 @@ int LFirst(List* plist, LData* pdata)                //첫 번째 조회
 	return TRUE;
 
 }
+
 int LNext(List* plist, LData* pdata)                 //두 번째 이후 데이터 참조
 {
 	if (plist->numOfData = 0)                        //저장된 데이터가 없을 경우
 		return FALSE;
 
-	(plist->numOfData)++;                            
+	(plist->numOfData)++;
 	*pdata = plist->arr[plist->curPosition];
 	return TRUE;
 }
@@ -68,10 +91,20 @@ LData LRemove(List* plist)                           //참조한 데이터 삭�
 	int rpos = plist->curPosition;                   //삭제할 데이터의 인덱스 값 참조
 	int num = plist->numOfData;
 	int i;
-	LData rdata = plist->arr[rpos];                  //
+	LData rdata = plist->arr[rpos];                  //삭제할 데이터를 임시로 저장
+
+	//삭제를 위한 데이터의 이동을 진행하는 반복문
+	for (i = rpos; i < num - 1; i++)
+		plist->arr[i] = plist->arr[i + 1];           //한 칸씩 앞(왼쪽)으로 이동 
+
+	(plist->numOfData)--;                            //데이터의 수 감소
+	(plist->curPosition)--;                          //참조위치를 하나 앞(왼쪽)으로 이동
+	return rdata;                                    //삭제된 데이터의 반환
 }
-int LCount(List* plist);                             //저장된 데이터의 수 반환
-
-#endif
-
+ 
+int LCount(List* plist)                              //저장된 데이터의 수 반환
+{
+	return plist->numOfData;
+}
 ```
+
