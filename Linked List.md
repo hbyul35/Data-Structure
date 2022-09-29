@@ -42,7 +42,7 @@ int LCount(List* plist);                             //저장된 데이터의 �
 
 ```
 
-ListMain.c
+# ListMain.c
 ```
 #include <stdio.h>
 #include "ArrayList.h"
@@ -108,3 +108,144 @@ int LCount(List* plist)                              //저장된 데이터의 �
 }
 ```
 
+# Point.h
+```
+#ifndef __POINT_H__
+#define __POINT_H__
+
+typedef struct _point
+{
+	int xpos;
+	int ypos;
+} Point;
+
+//Point 변수의 xpos, ypos 값 설정
+void SetPointPos(Point* ppos, int xpos, int ypos);
+
+//Point 변수의 xpos, ypos 정보 출력
+void ShowPointPos(Point* ppos);
+
+// 두 Point 변수의 비교
+int PointComp(Point* pos1, Point* pos2);
+
+#endif
+```
+
+# Point.c
+```
+#include <stdio.h>
+#include "Point.h"
+
+//Point 변수의 xpos, ypos 값 설정
+void SetPointPos(Point* ppos, int xpos, int ypos)
+{
+	ppos->xpos = xpos;
+	ppos->ypos = ypos;
+}
+
+//Point 변수의 xpos, ypos 정보 출력
+void ShowPointPos(Point* ppos)
+{
+	printf("[%d],[%d] \n", ppos->xpos, ppos->ypos);
+}
+
+// 두 Point 변수의 비교
+int PointComp(Point* pos1, Point* pos2)
+{
+	if (pos1->xpos == pos2->xpos && pos1->ypos == pos2->ypos)
+		return 0;
+	else if (pos1->xpos == pos2->xpos)
+		return 1;
+	else if (pos1->ypos == pos2->ypos)
+		return 2;
+	else
+		return -1;
+}
+```
+
+# PointListMain.c
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include "Point.h"
+#include "ArrayList.h"
+
+int main(void)
+{
+	List list;
+	Point compPos;
+	Point* ppos;
+
+	ListInit(&list);
+
+	//4개의 데이터 저장
+	ppos = (Point*)malloc(sizeof(Point));                          //malloc , free 동적 메모리 할당 및 해제
+	SetPointPos(ppos, 2, 1);
+	LInsert(&list, ppos);
+
+	ppos = (Point*)malloc(sizeof(Point));                          
+	SetPointPos(ppos, 2, 2);
+	LInsert(&list, ppos);
+
+	ppos = (Point*)malloc(sizeof(Point));                         
+	SetPointPos(ppos, 3, 1);
+	LInsert(&list, ppos);
+
+	ppos = (Point*)malloc(sizeof(Point));                          
+	SetPointPos(ppos, 3, 2);
+	LInsert(&list, ppos);
+
+	//저장된 데이터의 출력
+
+	printf("현재 저장된 데이터의 수 : %d \n", LCount(&list));
+	
+	if (LFirst(&list, &ppos))                                         //첫번째 데이터를 조회한다면 Show- 함수 호출.
+	{
+		ShowPointPos(ppos);
+
+		while (LNext(&list, &ppos))
+			ShowPointPos(ppos);
+	}
+
+	printf("\n");
+
+
+	//xpos가 2인 모든 데이터 삭제
+
+	compPos.xpos = 2;
+	compPos.ypos = 0;
+
+	if (LFirst(&list,&ppos))
+	{
+		if (PointComp(ppos,&compPos)==1)
+		{
+			ppos = LRemove(&list);
+			free(ppos);
+		}
+
+		while (LNext(&list,&ppos))
+		{
+			if (PointComp(ppos,&compPos)==1)
+			{
+				ppos = LRemove(&list);
+				free(ppos);
+			}
+		}
+	}
+
+	//삭제 후 남은 데이터 전체 출력
+	printf("현재 데이터의 수 : %d \n", LCount(&list));
+
+	if (LFirst(&list,&ppos))
+	{
+		ShowPointPos(ppos);
+
+		while (LNext(&list, &ppos))
+			ShowPointPos(ppos);
+	}
+	printf("\n");
+
+	return 0;
+
+}
+```
