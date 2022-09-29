@@ -197,9 +197,9 @@ int main(void)
 
 	//저장된 데이터의 출력
 
-	printf("현재 저장된 데이터의 수 : %d \n", LCount(&list));
+	printf("현재 저장된 데이터의 수 : %d \n", LCount(&list));                //여기까지는 정상적으로 4개 저장된거 확인됨. 이 이후부터 문제가 생긴듯해요.
 	
-	if (LFirst(&list, &ppos))                                         //첫번째 데이터를 조회한다면 Show- 함수 호출.
+	if (LFirst(&list, &ppos))                                         //책에는 이대로 적혀있는데 똑같이 안나오더라구요. 무엇보다 왜 if문에 조건을 LFirst를 넣는지도 이해가 안가네요 ㅠㅠ..
 	{
 		ShowPointPos(ppos);
 
