@@ -259,8 +259,8 @@ int main(void)
 
 typedef struct _node
 {
-	int data;
-	struct _node* next;
+	int data;                                                           //데이터를 담을 공간
+	struct _node* next;                                                 //연결 도구
 } Node;
 
 int main(void)
