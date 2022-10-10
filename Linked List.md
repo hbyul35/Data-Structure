@@ -259,15 +259,15 @@ int main(void)
 
 typedef struct _node
 {
-	int data;                                                           //데이터를 담을 공간
-	struct _node* next;                                                 //연결 도구
+	int data;                                             // 데이터를 담을 공간
+	struct _node* next;                                   // 연결의 도구
 } Node;
 
 int main(void)
 {
-	Node* head = NULL;
-	Node* tail = NULL;
-	Node* cur = NULL;
+	Node* head = NULL;                                    // 리스트의 머리를 가리키는 포인터 변수
+	Node* tail = NULL;                                    // 리스트의 꼬리를 가리키는 포인터 변수
+	Node* cur = NULL;                                     // 저장된 데이터의 조회에 사용되는 포인터 변수
 
 	Node* newNode = NULL;
 	int readData;
@@ -281,15 +281,15 @@ int main(void)
 			break;
 
 		//노드의 추가 과정
-		newNode = (Node*)malloc(sizeof(Node));
-		newNode->data = readData;
-		newNode->next = NULL;
+		newNode = (Node*)malloc(sizeof(Node));            // 노드(바구니)의 생성
+		newNode->data = readData;                         // 노드에 데이터 저장
+		newNode->next = NULL;                             // 노드의 next를 NULL로 초기화
 
-		if (head == NULL)
-			head = newNode;
-		else tail->next = newNode;
+		if (head == NULL)                                 // 첫 번째 노드라면
+			head = newNode;                               // 첫 번째 노드를 head가 가리키게 함
+		else tail->next = newNode;                        // 두 번째 이후 노드라면 tail 뒤 노드에 연결
 
-		tail = newNode;
+		tail = newNode;                                   // 노드의 끝을 tail이 가리키게 함
 	}
 	printf("\n");
 
@@ -300,13 +300,13 @@ int main(void)
 		printf("자연수가 존재하지 않습니다.");
 	else
 	{
-		cur = head;
-		printf("%d ", cur->data);                       //첫 번째 데이터 출력
+		cur = head;                                      // cur이 리스트의 첫 번째 노드를 가리킨다.
+		printf("%d ", cur->data);                        //첫 번째 데이터 출력
 
-		while (cur->next != NULL)                     //다음에 데이터가 존재할 경우, 두 번째 이후 데이터 출력
+		while (cur->next != NULL)                       // 연결된 노드가 존재할 경우
 		{
-			cur = cur->next;
-			printf("%d ", cur->data);
+			cur = cur->next;                            // cur이 다음 노드를 가리키게 한다.
+			printf("%d ", cur->data);                   // cur이 가리키는 노드를 출력한다.
 		}
 	}
 	printf("\n\n");
