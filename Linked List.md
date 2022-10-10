@@ -1,13 +1,13 @@
 # Linked List [연결리스트]
-``데이터를 나란히 저장하며, 중복된 데잍의 저장을 막지 않습니다.``
+``데이터를 나란히 저장하며, 중복된 데이터의 저장을 막지 않습니다.``
 1. 순차 리스트 : 배열을 기반으로 구현된 리스트
 2. 연결 리스트 : 메모리의 동적 할당을 기반으로 구현된 리스트
 
 # Abstract Data Type [추상자료형]
 - 구체적인 기능의 완성과정을 언급하지 않고, 순수하게 기능이 무엇인지를 나열한 것
 
-# 연결 리스트의 
-# ArrayList.h
+
+## ArrayList.h
 ```
 
 #include <stdio.h>
@@ -43,7 +43,7 @@ int LCount(List* plist);                             //저장된 데이터의 �
 
 ```
 
-# ListMain.c
+## ListMain.c
 ```
 #include <stdio.h>
 #include "ArrayList.h"
@@ -109,7 +109,7 @@ int LCount(List* plist)                              //저장된 데이터의 �
 }
 ```
 
-# Point.h
+## Point.h
 ```
 #ifndef __POINT_H__
 #define __POINT_H__
@@ -132,7 +132,7 @@ int PointComp(Point* pos1, Point* pos2);
 #endif
 ```
 
-# Point.c
+## Point.c
 ```
 #include <stdio.h>
 #include "Point.h"
@@ -164,7 +164,7 @@ int PointComp(Point* pos1, Point* pos2)
 }
 ```
 
-# PointListMain.c
+## PointListMain.c
 ```
 #include <stdio.h>
 #include <stdlib.h>
@@ -252,7 +252,7 @@ int main(void)
 ```
 # 연결리스트의 활용
 
-#LinkedRead.c
+## LinkedRead.c
 ```
 #include <stdio.h>
 #include <stdlib.h>
