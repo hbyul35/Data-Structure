@@ -3,13 +3,13 @@
 
 ## 자료구조와 알고리즘의 이해
 
-* [자료구조의 이해](링크주소)
+* [자료구조의 이해](#이동할-위치)
 * [알고리즘 성능분석](링크주소)
 
 
 ## 재귀
 
-* [재귀 이해 및 활용]([링크주소](https://github.com/hbyul35/Data-Structure/blob/master/Recursion.md#recursion))
+* [재귀 이해 및 활용]([링크주소](#recursion))
 
 
 ## 연결리스트
