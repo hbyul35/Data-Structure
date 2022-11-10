@@ -9,7 +9,7 @@
 
 ## 재귀
 
-* [재귀 이해 및 활용](https://github.com/hbyul35/Data-Structure/blob/master/Recursion.md)
+* [재귀 이해 및 활용](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/Recursion.md)
 
 
 ## 연결리스트
