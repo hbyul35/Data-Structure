@@ -20,5 +20,5 @@
 
 ## 스택
 * [배열 기반 스택 구현](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/ArrayBaseStack.md)
-* [연결 리스트 기반 스택 구현]()
+* [연결 리스트 기반 스택 구현](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/ListBaseStack.md)
 * [계산기 구현]()
