@@ -8,7 +8,7 @@
 전위 or 후위 표기법의 수식을 사용하면 연산자의 배치 순서에 따랏 연산순서가 결정되기 때문에, 연산자의 우선순위를 알 필요가 없고, 
 소괄호에 대한 처리도 불필요하다.
 
-### 중위 표기법을 후위 표기법으로 바꾸는 방법
+## 중위 표기법을 후위 표기법으로 바꾸는 방법
 1. 왼쪽부터 피연산자(숫자)는 바로 후위 표기법으로 변환시킨다.
 2. 수식을 만날 경우 스택에 쌓는다.
 3. 새 연산자가 스택에 있는 연산자보다 우선순위가 높다면 스택에 추가해준다.
@@ -17,9 +17,15 @@
 5. 만약 연산자의 우선순위가 같다면 스택의 연산자를 옮기고, 새 연산자를 스택에 쌓아준다. 먼저 등장한 연산자가 우선이기 때문이다.
 6. 소괄호가 있을경우, 소괄호가 끝나는 시점에서 연산자들을 모두 옮긴뒤, 다시 후위 표기법으로 바꿔준다. 이때, 소괄호는 반환할 필요가 없다.
 
-# 중위표기법 계산기
+<hr/>
 
-## ListBaseStack.h
+
+
+# 계산기 헤더파일과 소스파일
+
+## 스택의 활용
+
+### ListBaseStack.h
 ```
 #define         TRUE 1
 #define         FALSE 0
@@ -47,12 +53,7 @@ Data SPop(Stack* pstack);                     // 스택의 pop 연산
 Data SPeek(Stack* pstack);                    // 스택의 peek 연산
 ```
 
-## InfixToPostfix.h
-```
-void ConvToRPNExp(char exp[]);
-```
-
-## ListBaseStack.cpp
+### ListBaseStack.cpp
 ```
 #include <stdio.h>
 #include <stdlib.h>
@@ -111,8 +112,16 @@ Data SPeek(Stack* pstack)
 	return pstack->head->data;                     // head가 가리키는 노드에 저장된 데이터 반환
 }
 ```
+<hr/>
 
-## InfixToPostfix.cpp
+## 후위 표기법의 수식으로 변환
+
+### InfixToPostfix.h
+```
+void ConvToRPNExp(char exp[]);
+```
+
+### InfixToPostfix.cpp
 ```
 #include <string.h>
 #include <stdlib.h>
@@ -203,8 +212,28 @@ void ConvToRPNExp(char exp[])                       // 후위 표기법으로 �
 	free(convExp);                                    // convExp는 소멸시킨다.
 }
 ```
+<hr/>
 
-## InfixToPostfixMain.cpp
+## 후위 표기법의 수식을 계산
+
+### PostCalculator.h
+
+### PostCalculator.cpp
+
+<hr/>
+
+## 중위 표기법의 수식을 계산
+
+### InfixCalculator.h
+
+### InfixCalculator.cpp
+
+
+<hr/>
+
+## main 함수
+
+### InfixCalculatorMain.cpp
 ```
 #include <stdio.h>
 #include "InfixToPostfix.h"
@@ -228,5 +257,9 @@ int main(void)
 
 <hr/>
 
+## 중위 표기법을 후위 표기법으로 바꾸는 방법
+1. 
+2. 수식을 만날 경우 스택에 쌓는다.
+3. 
 # 후위표기법 계산기
 
