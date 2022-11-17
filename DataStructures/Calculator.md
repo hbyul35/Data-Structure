@@ -217,16 +217,91 @@ void ConvToRPNExp(char exp[])                       // 후위 표기법으로 �
 ## 후위 표기법의 수식을 계산
 
 ### PostCalculator.h
+```
+int EvalRPNExp(char exp[]);
+```
 
 ### PostCalculator.cpp
+```
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "ListBaseStack.h"
+
+int EvalRPNExp(char exp[])                                  // 후위 표기법의 수식을 계산하여 그 결과를 반환
+{
+	Stack stack;
+	int expLen = strlen(exp);
+	int i;
+	char tok, op1, op2;
+
+	StackInit(&stack);
+
+	for ( i = 0; i < expLen; i++)                           // 수식을 구성하는 문자 각각을 대상으로 반복
+	{
+		tok = exp[i];                                       // 한 문자씩 tok에 저장하고,
+		if (isdigit(tok))                                   // 문자의 내용이 정수인지 확인한다.
+		{
+			SPush(&stack, tok - '0');                       // 정수면 숫자로 변환 후 스택에 Push
+		}
+		else                                                // 정수가 아닌 연산자라면,
+		{
+			op2 = SPop(&stack);                             // 스택에서 두 번째 연산자를 꺼낸다.
+			op1 = SPop(&stack);                             // 스택에서 첫 번째 연산자를 꺼낸다.
+
+			switch (tok)                                    // 연산하고 그 결과를 다시 스택에 Push
+			{
+			case '+':
+				SPush(&stack, op1 + op2);
+				break;
+			case '-':
+				SPush(&stack, op1 - op2);
+				break;
+			case '*':
+				SPush(&stack, op1 * op2);
+				break;
+			case '/':
+				SPush(&stack, op1 / op2);
+				break;
+			}
+		}
+	}
+	return SPop(&stack);                                      // 마지막 연산결과를 스택에서 꺼내어 반환
+}
+```
 
 <hr/>
 
 ## 중위 표기법의 수식을 계산
 
 ### InfixCalculator.h
+```
+int EvalInfixExp(char exp[]);
+
+```
 
 ### InfixCalculator.cpp
+```
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "InfixToPostfix.h"                                        // ConvToRPNExp 함수 호출을 위해
+#include "PostCalculator.h"                                        // EvalRPNExp 함수 호출을 위해
+
+int EvalInfixExp(char exp[])
+{
+	int len = strlen(exp);
+	int ret;
+	char* expcpy = (char*) new char[len + 1];                      // 문자열 저장공간 마련
+	strcpy(expcpy, exp);                                           // exp를 expcpy에 복사
+
+	ConvToRPNExp(expcpy);                                          // 후위 표기법의 수식으로 변환
+	ret = EvalRPNExp(expcpy);                                      // 변환된 수식의 계산
+
+	free(expcpy);                                                  // 문자열 저장공간 해제
+	return ret;                                                    // 계산결과 반환
+}
+```
 
 
 <hr/>
@@ -236,30 +311,19 @@ void ConvToRPNExp(char exp[])                       // 후위 표기법으로 �
 ### InfixCalculatorMain.cpp
 ```
 #include <stdio.h>
-#include "InfixToPostfix.h"
+#include "InfixCalculator.h"
 
-int main(void)
+int main()
 {
 	char exp1[] = "1+2*3";
 	char exp2[] = "(1+2)*3";
-	char exp3[] = "((1+2)+3)*(5-2)";
+	char exp3[] = "((1-2)+3)*(5-2)";
 
-	ConvToRPNExp(exp1);
-	ConvToRPNExp(exp2);
-	ConvToRPNExp(exp3);
-
-	printf("%s \n", exp1);
-	printf("%s \n", exp2);
-	printf("%s \n", exp3);
-	return 0;
+	printf("%s = %d \n", exp1, EvalInfixExp(exp1));
+	printf("%s = %d \n", exp2, EvalInfixExp(exp2));
+	printf("%s = %d \n", exp3, EvalInfixExp(exp3));
 }
 ```
 
-<hr/>
 
-## 중위 표기법을 후위 표기법으로 바꾸는 방법
-1. 
-2. 수식을 만날 경우 스택에 쌓는다.
-3. 
-# 후위표기법 계산기
 
