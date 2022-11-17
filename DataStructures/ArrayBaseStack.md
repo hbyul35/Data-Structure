@@ -2,7 +2,7 @@
 나중에 들어간 것이 먼저 나오는 '후입선출' 방식의 자료구조이다. 
 LIFO(Last-In, First-Out) 자료구조라고도 불린다.
 
-### ADT 정의
+## ADT 정의
 * void StackInit(Stack * pstack);                // 스택의 초기화
 * int SIsEmpty(Stack * pstack);                  // 스택이 빈 경우 TRUE, 아닌경우 FALSE 반환
 * void SPush(Stack * pstack, Data data);         // 스택에 데이터 저장
