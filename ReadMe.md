@@ -24,7 +24,7 @@
 * [계산기 구현](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/Calculator.md)
 
 ## 큐
-* [큐의 배열 기반 구현]()
+* [큐의 배열 기반 구현](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/Queue.md)
 * [큐의 연결 리스트 기반 구현]()
 * [큐의 활용]()
 * [덱(Deque)의 이해와 구현]()
