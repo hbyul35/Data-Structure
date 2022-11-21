@@ -21,3 +21,54 @@ BTreeNode* GetRightSubTree(BTreeNode* bt);                         // 오른쪽 
 void MakeLeftSubTree(BTreeNode* main, BTreeNode* sub);             // 노드 A의 왼쪽 자식 노드로 노드 B 연결
 void MakeRightSubTree(BTreeNode* main, BTreeNode* sub);            //노드 A의 오른쪽 자식 노드로 노드 C 연결
 ```
+
+## BinaryTree.cpp
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include "BinaryTree.h"
+
+BTreeNode* MakeBTreeNode(void)
+{
+	BTreeNode* nd = new(BTreeNode);
+	nd->left = NULL;
+	nd->right = NULL;
+	return nd;
+}
+
+BTData GetData(BTreeNode* bt)
+{
+	return bt->data;
+}
+
+void SetData(BTreeNode* bt, BTData data)
+{
+	bt->data = data;
+}
+
+BTreeNode* GetLeftSubTree(BTreeNode* bt)
+{
+	return bt->left;
+}
+
+BTreeNode* GetRightSubTree(BTreeNode* bt)
+{
+	return bt->right;
+}
+
+void MakeLeftSubTree(BTreeNode* main, BTreeNode* sub)
+{
+	if (main->left != NULL)
+		free(main->left);
+
+	main->left = sub;
+}
+
+void MakeRightSubTree(BTreeNode* main, BTreeNode* sub)
+{
+	if (main->right != NULL)
+		free(main->right);
+
+	main->right = sub;
+}
+```
