@@ -30,7 +30,7 @@
 * [덱(Deque)의 이해와 구현](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/Deque.md)
 
 ## 트리
-* [트리 개요]()
+* [트리 개요](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/TreeOutline.md)
 * [이진 트리 구현]()
 * [이진 트리 순회]()
 * [수식 트리 구현]()
