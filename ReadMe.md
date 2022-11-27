@@ -14,7 +14,7 @@
 
 ## 연결리스트
 
-* [추상자료형(ADT)기반 리스트](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/ADT_List)
+* [추상자료형(ADT)기반 리스트](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/ADT_List.md)
 * [단순 연결 리스트](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/LinkedList.md)
 * [원형 연결 리스트](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/Circular%20Linked%20List.md)
 
