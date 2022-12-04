@@ -21,3 +21,8 @@
 모든 레벨이 꽉 찬 이진 트리
 * 완전 이진 트리(Complete Binary Tree)
 포화 이진 트리처럼 모든 레벨이 꽉 찬 상태는 아니지만, 빈 틈 없이 노드가 채워진 이진 트리
+
+### Traversal
+1. 전위 순회 (Preorder Traversal)  : 루트 노드를 먼저
+2. 중위 순회 (Inorder Traversal)    :           루트 노드를 중간에
+3. 후위 순회 (Postorder Traversal)   :          루트 노드를 마지막에
