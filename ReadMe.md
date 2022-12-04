@@ -32,5 +32,5 @@
 ## 트리
 * [트리 개요](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/TreeOutline.md)
 * [이진 트리 구현](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/BinaryTree.md)
-* [이진 트리 순회](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/Traversal.md)
+* [이진 트리 순회](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/BinaryTree2.md)
 * [수식 트리 구현]()
