@@ -37,4 +37,4 @@
 
 ## 우선순위 큐(Priority Queue)와 힙(Heap)
 * [우선순위 큐와 힙의 이해](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/PrioirtyQueue.md)
-* [힙의  및 우선순위 큐의 완성]()
+* [힙의  및 우선순위 큐의 완성](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/heap.md)
