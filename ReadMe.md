@@ -3,7 +3,7 @@
 
 ## 자료구조와 알고리즘의 이해
 
-* [자료구조의 이해](#이동할-위치)
+* [자료구조의 이해](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/Basement.md)
 * [알고리즘 성능분석](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/algorithm.md)
 
 
