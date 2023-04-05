@@ -2,7 +2,7 @@
 
 ## lecture
 
-* [자료구조 강의]()
+* [자료구조 강의](https://github.com/hbyul35/Data-Structure/blob/master/DataStructures/Base.md)
 
 ## 자료구조와 알고리즘의 이해
 
